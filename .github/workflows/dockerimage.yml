@@ -6,16 +6,15 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-            - uses: actions/checkout@v1 # may be actions/checkout@v2 now
-            - id: step1
-              run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-            - id: step2
-              run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
-            - id: step3
-              run: docker build . --file Dockerfile --tag pjlamb12/angular-cli:${{steps.vars.outputs.tag}}
-            - id: step4
-              run: docker push pjlamb12/angular-cli:${{steps.vars.outputs.tag}}
-            - id: step5
-              run: docker build . --file Dockerfile --tag pjlamb12/angular-cli:latest
-            - id: step6
-              run: dock
+        - id: step1
+          run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+        - id: step2
+          run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
+        - id: step3
+          run: docker build . --file Dockerfile --tag pjlamb12/angular-cli:${{steps.vars.outputs.tag}}
+        - id: step4
+          run: docker push pjlamb12/angular-cli:${{steps.vars.outputs.tag}}
+        - id: step5
+          run: docker build . --file Dockerfile --tag pjlamb12/angular-cli:latest
+        - id: step6
+          run: dock
