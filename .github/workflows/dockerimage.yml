@@ -3,7 +3,7 @@ name: Greeting from Vijay
 on: push
 
 jobs:
-  my-job:
+  job1:
     runs-on: ubuntu-latest
     steps:
             - uses: actions/checkout@v1 # may be actions/checkout@v2 now
