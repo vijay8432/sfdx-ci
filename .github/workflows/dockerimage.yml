@@ -1,14 +1,12 @@
-name: Docker Image CI
+name: Greeting from Vijay
 
-on:
-release:
-types: [published]
+on: push
 
 jobs:
-build:
-runs-on: ubuntu-latest
-
-        steps:
+  my-job:
+    name: My Job
+    runs-on: ubuntu-latest
+    steps:
             - uses: actions/checkout@v1 # may be actions/checkout@v2 now
             - name: Login to DockerHub Registry
               run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
