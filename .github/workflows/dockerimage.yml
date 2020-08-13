@@ -11,10 +11,10 @@ jobs:
         - id: step2
           run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
         - id: step3
-          run: docker build . --file Dockerfile --tag pjlamb12/angular-cli:${{steps.vars.outputs.tag}}
+          run: docker build . --file Dockerfile --tag vijay8432/sfdx-ci:${{steps.vars.outputs.tag}}
         - id: step4
-          run: docker push pjlamb12/angular-cli:${{steps.vars.outputs.tag}}
+          run: docker push vijay8432/sfdx-ci:${{steps.vars.outputs.tag}}
         - id: step5
-          run: docker build . --file Dockerfile --tag pjlamb12/angular-cli:latest
+          run: docker build . --file Dockerfile --tag vijay8432/sfdx-ci:latest
         - id: step6
           run: dock
